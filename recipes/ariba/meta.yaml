@@ -1,11 +1,15 @@
+{% set name = "ariba" %}
+{% set version = "2.9.3" %}
+{% set md5 = "4576053069fb8c607f2e621e15891fbb" %}
+
 package:
-  name: ariba
-  version: "2.5.1"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: ariba-2.5.1.tar.gz
-  url: https://pypi.python.org/packages/51/e9/e213fea61cb4630861e1dece3b77b7aafbae212c18b72ce68aa19b7e4aea/ariba-2.5.1.tar.gz
-  md5: 7b243610ff2d8e83f220fb32eab1b83b
+  fn: {{ name|lower }}_{{ version }}.tar.gz
+  url: https://github.com/sanger-pathogens/{{ name }}/archive/v{{ version }}.tar.gz
+  md5: {{ md5 }}
 
 build:
   skip: True # [py27]
@@ -15,26 +19,27 @@ requirements:
   build:
     - python
     - setuptools
-    - dendropy >=4.1.0
+    - dendropy >=4.2.0
     - pyfastaq >=3.12.0
     - pysam >=0.9.1
-    - pymummer >=0.10.1
+    - pymummer >=0.10.2
+    - beautifulsoup4 >=4.1.0
+    - matplotlib
     - gcc  # [not osx]
     - llvm  # [osx]
     - zlib
 
   run:
     - python
-    - dendropy >=4.1.0
+    - dendropy >=4.2.0
     - pyfastaq >=3.12.0
     - pysam >=0.9.1
-    - pymummer >=0.10.1
+    - pymummer >=0.10.2
     - bowtie2 >=2.1.0
     - cd-hit >=4.6
     - samtools >=1.2
     - bcftools >=1.2
     - mummer >=3.23
-    - spades >=3.5.0
     - libgcc  # [not osx]
     - zlib
 
