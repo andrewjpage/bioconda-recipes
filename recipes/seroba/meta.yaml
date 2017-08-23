@@ -1,6 +1,6 @@
 {% set name = "seroba" %}
 {% set version = "0.1.5" %}
-{% set hash = "xxxxx" %}
+{% set hash = "91ababdf896b849e71e3d09f134a87b4a8eb17b14caa5bcf556993b07e80ba0f" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   fn: {{ name|lower }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/s/{{ name|lower }}/{{ name|lower }}-{{ version }}.tar.gz
+  url: https://pypi.python.org/packages/a9/cf/b21734ec5736af98db3ad82e05d130e28872931315e0150757c99d6b460d/{{ name|lower }}-{{ version }}.tar.gz
   sha256: {{ hash }}
 
 build:
@@ -24,7 +24,7 @@ requirements:
   run:
     - python
     - ariba >=2.9.1
-    - PyYAML >=3.12
+    - pyyaml >=3.12
     - pymummer >=0.10.2
     - biopython >=1.68
 
