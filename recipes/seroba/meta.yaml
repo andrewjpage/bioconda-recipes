@@ -1,0 +1,42 @@
+{% set name = "seroba" %}
+{% set version = "0.1.4" %}
+{% set hash = "xxxxx" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name|lower }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/s/{{ name|lower }}/{{ name|lower }}-{{ version }}.tar.gz
+  sha256: {{ hash }}
+
+build:
+  skip: True # [py27]
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - ariba >=2.9.1
+
+  run:
+    - python
+    - ariba >=2.9.1
+    - PyYAML >=3.12
+    - pymummer >=0.10.2
+    - biopython >=1.68
+
+test:
+  imports:
+    - seroba
+    - seroba.tasks
+
+  requires:
+    - nose >=1.3
+
+about:
+  home: https://github.com/sanger-pathogens/seroba
+  license: GNU General Public License v3 (GPLv3)
+  summary: 'SeroBA is an in silico serotyping tool for Streptococcus pneumoniae'
