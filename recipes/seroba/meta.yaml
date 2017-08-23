@@ -1,5 +1,5 @@
 {% set name = "seroba" %}
-{% set version = "0.1.4" %}
+{% set version = "0.1.5" %}
 {% set hash = "xxxxx" %}
 
 package:
