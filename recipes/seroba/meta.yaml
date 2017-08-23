@@ -23,6 +23,7 @@ requirements:
 
   run:
     - python
+    - kmc >=3.0.0
     - ariba >=2.9.1
     - pyyaml >=3.12
     - pymummer >=0.10.2
